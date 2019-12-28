@@ -88,7 +88,7 @@ header #logo a:hover {
 /* Contenedor principal */
 
 #content {
-    min-height: 600px;
+    min-height: 1200px;
     height: auto;
     width: 75%;
     margin: 0 auto;
@@ -157,6 +157,21 @@ article.about {
     padding-top: 10px;
 }
 
+.container .image {
+    float: left;
+    width: 47%;
+}
+
+.container .image img {
+    width: 100%;
+}
+
+.container .data {
+    float: left;
+    width: 49%;
+    margin-left: 30px
+}
+
 .container h2 {
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
@@ -179,7 +194,7 @@ form input[type="text"], form input[type="number"], form input[type="email"], fo
     padding: 5px;
 }
 
-form button, form input[type="submit"] {
+form button, form input[type="submit"], .button-edit, .button-delete {
     display: block;
     font-size: 17px;
     padding: 10px;
@@ -188,6 +203,24 @@ form button, form input[type="submit"] {
     background: rgba(53, 103, 164, 1);
     border: 1px solid rgb(13, 67, 133);
     cursor: pointer;
+}
+
+.button-edit, .button-delete {
+    width: 30%;
+    float: left;
+    margin-right: 10px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.button-edit {
+    background: orange;
+    border: 3px solid rgb(194, 126, 1);
+}
+
+.button-delete {
+    background: red;
+    border: 3px solid rgb(134, 4, 4);
 }
 
 form button:hover, form input[type="submit"]:hover {
@@ -228,6 +261,7 @@ form input[disabled] {
 }
 
 /* Página de proyectos */
+
 .project {
     list-style: none;
     display: block;
@@ -244,6 +278,17 @@ form input[disabled] {
     overflow: hidden;
 }
 
-.project img{
+.project img {
     width: 100%;
+}
+
+.project a {
+    text-decoration: none;
+    color: black;
+}
+
+.confirm {
+    display: block;
+    font-weight: bold;
+    margin-top: 20px;
 }

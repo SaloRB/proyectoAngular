@@ -7,27 +7,35 @@ import { Global } from "./global";
 @Injectable()
 export class ProjectService {
     public url: string;
+    private headers: HttpHeaders;
 
     constructor(
         private _http: HttpClient
     ) {
         this.url = Global.url;
+        this.headers =  new HttpHeaders().set('Content-Type', 'application/json');
     }
 
-    testService() {
-        return 'Probando el servicio de Angular';
-    }
-
-    saveProject(project: Project): Observable<any>{
+    saveProject(project: Project): Observable<any> {
         let params = JSON.stringify(project);
-        let headers = new HttpHeaders().set('Content-Type', 'application/json');
-
-        return this._http.post(this.url+'save-project', params, {headers: headers});
+        return this._http.post(this.url + 'save-project', params, { headers: this.headers });
     }
 
     getProjects(): Observable<any> {
-        let headers = new HttpHeaders().set('Content-Type', 'application/json');
-
-        return this._http.get(this.url + 'projects', {headers: headers});
+        return this._http.get(this.url + 'projects', { headers: this.headers });
     }
+
+    getProject(id): Observable<any> {
+        return this._http.get(this.url + 'project/' + id, { headers: this.headers });
+    }
+
+    deleteProject(id): Observable<any> {
+        return this._http.delete(this.url + 'project/' + id, { headers: this.headers });
+    }
+
+    updateProject(project): Observable<any> {
+        let params = JSON.stringify(project);
+
+        return this._http.put(this.url + 'project/' + project._id, params, { headers: this.headers });
+    }    
 }
