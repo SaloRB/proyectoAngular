@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 declare var $: any;
 
 @Component({
@@ -12,12 +12,14 @@ export class ContactComponent implements OnInit {
   public captions: boolean;
   public autor: any;
 
+  @ViewChild('textos', { static: true }) textos: ElementRef;
+
   constructor() {
     this.captions = true;
   }
 
   ngOnInit() {
-
+    
   }
 
   cargarSlider() {
