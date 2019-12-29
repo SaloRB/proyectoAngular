@@ -7,14 +7,28 @@ declare var $: any;
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
+  public sliderWidth: number;
+  public anchuraToSlider: any;
+  public captions: boolean;
+  public autor: any;
 
-  constructor() { }
+  constructor() {
+    this.captions = true;
+  }
 
   ngOnInit() {
-    $('.galeria').bxSlider({
-      mode: 'fade',
-      captions: false,
-      slideWidth: 400
-    });
+
+  }
+
+  cargarSlider() {
+    this.anchuraToSlider = this.sliderWidth;
+  }
+
+  reiniciarSlider() {
+    this.anchuraToSlider = false;
+  }
+
+  getAutor(event) {
+    this.autor = event;
   }
 }
